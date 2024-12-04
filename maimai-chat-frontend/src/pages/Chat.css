@@ -28,6 +28,37 @@
   font-weight: bold;
   color: #e91e63;
   border-bottom: 1px solid #f3e5f5;
+  position: relative;
+}
+
+.score-number {
+  display: inline-block;
+}
+
+.score-change {
+  position: absolute;
+  left: 50%;
+  animation: scoreFloat 1s ease-out forwards;
+  opacity: 0;
+}
+
+.score-change.positive {
+  color: #52c41a;
+}
+
+.score-change.negative {
+  color: #ff4d4f;
+}
+
+@keyframes scoreFloat {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
 }
 
 .chat-messages {
@@ -119,7 +150,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
@@ -166,4 +197,47 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ff4081;
+}
+
+:global(.custom-modal) {
+  .ant-modal-content {
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+  }
+
+  .ant-modal-body {
+    padding: 24px;
+  }
+
+  .ant-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+}
+
+.result-modal .ant-modal-content {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.result-modal .ant-modal-body {
+  padding: 0;
+}
+
+.result-modal {
+  animation: modalFadeIn 0.5s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 } 
