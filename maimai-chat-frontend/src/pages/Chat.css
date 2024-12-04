@@ -240,4 +240,32 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.footer-credits {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 4px 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  transition: opacity 0.3s ease;
+}
+
+.footer-credits:hover {
+  opacity: 0.9;
+}
+
+.github-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 } 

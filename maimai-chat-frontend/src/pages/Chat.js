@@ -20,6 +20,13 @@ function Chat() {
     scrollToBottom();
   }, [messages]);
 
+  useEffect(() => {
+    setMessages([{
+      type: 'ai',
+      content: '哼'
+    }]);
+  }, []);
+
   const handleSend = async () => {
     if (!inputValue.trim()) return;
     
@@ -237,8 +244,8 @@ function Chat() {
           {messages.map((msg, index) => (
             <div key={index} className={`message ${msg.type}`}>
               <img 
-                src={msg.type === 'user' ? '/static/li_avatar.png' : '/static/mai_avatar.png'} 
-                alt={msg.type === 'user' ? '李行亮' : '麦麦'} 
+                src={msg.type === 'user' ? '/static/li_avatar.jpg' : '/static/mai_avatar2.png'} 
+                alt={msg.type === 'user' ? '李行亮' : '麦麦'}
                 className="avatar"
               />
               <div className="message-content">
@@ -254,7 +261,7 @@ function Chat() {
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
             onPressEnter={handleSend}
-            placeholder="输入你想说的话..."
+            placeholder="亮子，快说点什么..."
             disabled={isTyping}
           />
           <Button 
@@ -266,6 +273,9 @@ function Chat() {
             发送
           </Button>
         </div>
+      </div>
+      <div className="footer-credits">
+        <span>V0.1.0 by Ferry Feng</span>
       </div>
     </div>
   );
